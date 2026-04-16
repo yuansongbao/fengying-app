@@ -1,18 +1,15 @@
-﻿import { View, Text, StyleSheet, ScrollView } from 'react-native';
-import { LinearGradient } from 'expo-linear-gradient';
-import { FontAwesome6 } from '@expo/vector-icons';
+﻿import { View, Text, StyleSheet, ScrollView } from "react-native";
+import { LinearGradient } from "expo-linear-gradient";
+import { FontAwesome6 } from "@expo/vector-icons";
 
 export default function Home() {
   return (
     <ScrollView style={styles.container}>
       {/* Header */}
-      <LinearGradient
-        colors={['#0F172A', '#1E293B']}
-        style={styles.header}
-      >
+      <LinearGradient colors={["#0F172A", "#1E293B"]} style={styles.header}>
         <View style={styles.headerContent}>
           <Text style={styles.title}>蜂赢跟单</Text>
-          <Text style={styles.subtitle}>智能跟单 · 稳健收益</Text>
+          <Text style={styles.subtitle}>智能跟单  稳健收益</Text>
         </View>
       </LinearGradient>
 
@@ -42,7 +39,7 @@ export default function Home() {
           <FontAwesome6 name="user-circle" size={48} color="#3B82F6" />
           <View style={styles.traderInfo}>
             <Text style={styles.traderName}>CryptoKing</Text>
-            <Text style={styles.traderStats}>+156.8% · 1,286人跟单</Text>
+            <Text style={styles.traderStats}>+156.8%  1,286人跟单</Text>
           </View>
           <View style={styles.badge}>
             <Text style={styles.badgeText}>TOP 1</Text>
@@ -52,7 +49,7 @@ export default function Home() {
           <FontAwesome6 name="user-circle" size={48} color="#10B981" />
           <View style={styles.traderInfo}>
             <Text style={styles.traderName}>BTCMaster</Text>
-            <Text style={styles.traderStats}>+89.2% · 856人跟单</Text>
+            <Text style={styles.traderStats}>+89.2%  856人跟单</Text>
           </View>
         </View>
       </View>
@@ -94,7 +91,7 @@ export default function Home() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#F1F5F9',
+    backgroundColor: "#F1F5F9",
   },
   header: {
     padding: 40,
@@ -103,32 +100,32 @@ const styles = StyleSheet.create({
     borderBottomRightRadius: 30,
   },
   headerContent: {
-    alignItems: 'center',
+    alignItems: "center",
   },
   title: {
     fontSize: 36,
-    fontWeight: 'bold',
-    color: '#FFFFFF',
+    fontWeight: "bold",
+    color: "#FFFFFF",
     marginBottom: 8,
   },
   subtitle: {
     fontSize: 16,
-    color: '#94A3B8',
+    color: "#94A3B8",
   },
   statsContainer: {
-    flexDirection: 'row',
-    justifyContent: 'space-around',
+    flexDirection: "row",
+    justifyContent: "space-around",
     marginTop: -30,
     marginHorizontal: 20,
     marginBottom: 30,
   },
   statCard: {
-    backgroundColor: '#FFFFFF',
+    backgroundColor: "#FFFFFF",
     borderRadius: 20,
     padding: 20,
-    alignItems: 'center',
+    alignItems: "center",
     width: 100,
-    shadowColor: '#000',
+    shadowColor: "#000",
     shadowOffset: { width: 0, height: 4 },
     shadowOpacity: 0.1,
     shadowRadius: 8,
@@ -136,14 +133,14 @@ const styles = StyleSheet.create({
   },
   statValue: {
     fontSize: 24,
-    fontWeight: 'bold',
-    color: '#1E293B',
+    fontWeight: "bold",
+    color: "#1E293B",
     marginTop: 12,
     marginBottom: 4,
   },
   statLabel: {
     fontSize: 12,
-    color: '#64748B',
+    color: "#64748B",
   },
   section: {
     marginHorizontal: 20,
@@ -151,18 +148,18 @@ const styles = StyleSheet.create({
   },
   sectionTitle: {
     fontSize: 20,
-    fontWeight: 'bold',
-    color: '#1E293B',
+    fontWeight: "bold",
+    color: "#1E293B",
     marginBottom: 16,
   },
   traderCard: {
-    backgroundColor: '#FFFFFF',
+    backgroundColor: "#FFFFFF",
     borderRadius: 16,
     padding: 20,
     marginBottom: 12,
-    flexDirection: 'row',
-    alignItems: 'center',
-    shadowColor: '#000',
+    flexDirection: "row",
+    alignItems: "center",
+    shadowColor: "#000",
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.05,
     shadowRadius: 4,
@@ -174,38 +171,38 @@ const styles = StyleSheet.create({
   },
   traderName: {
     fontSize: 18,
-    fontWeight: 'bold',
-    color: '#1E293B',
+    fontWeight: "bold",
+    color: "#1E293B",
     marginBottom: 4,
   },
   traderStats: {
     fontSize: 14,
-    color: '#64748B',
+    color: "#64748B",
   },
   badge: {
-    backgroundColor: '#F59E0B',
+    backgroundColor: "#F59E0B",
     paddingHorizontal: 12,
     paddingVertical: 6,
     borderRadius: 12,
   },
   badgeText: {
-    color: '#FFFFFF',
+    color: "#FFFFFF",
     fontSize: 12,
-    fontWeight: 'bold',
+    fontWeight: "bold",
   },
   actionsGrid: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    justifyContent: 'space-between',
+    flexDirection: "row",
+    flexWrap: "wrap",
+    justifyContent: "space-between",
   },
   actionButton: {
-    backgroundColor: '#FFFFFF',
+    backgroundColor: "#FFFFFF",
     borderRadius: 20,
     padding: 24,
-    width: '48%',
-    alignItems: 'center',
+    width: "48%",
+    alignItems: "center",
     marginBottom: 16,
-    shadowColor: '#000',
+    shadowColor: "#000",
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.05,
     shadowRadius: 4,
@@ -215,14 +212,14 @@ const styles = StyleSheet.create({
     width: 56,
     height: 56,
     borderRadius: 28,
-    backgroundColor: '#F1F5F9',
-    justifyContent: 'center',
-    alignItems: 'center',
+    backgroundColor: "#F1F5F9",
+    justifyContent: "center",
+    alignItems: "center",
     marginBottom: 12,
   },
   actionLabel: {
     fontSize: 14,
-    fontWeight: '600',
-    color: '#1E293B',
+    fontWeight: "600",
+    color: "#1E293B",
   },
 });
