@@ -1,4 +1,4 @@
-﻿{
+{
   "expo": {
     "name": "蜂赢跟单",
     "slug": "fengying-trading",
@@ -24,11 +24,15 @@
       "favicon": "./assets/favicon.png"
     },
     "plugins": [
-      "expo-router"
+      "expo-router",
+      "expo-font"
     ],
     "extra": {
       "router": {
         "origin": false
+      },
+      "eas": {
+        "projectId": "b5a44865-74da-4d14-ad84-261a7010709c"
       }
     }
   }
