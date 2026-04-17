@@ -1,8 +1,12 @@
-﻿import { View, Text, StyleSheet, ScrollView } from "react-native";
+﻿import { View, Text, StyleSheet, ScrollView, TouchableOpacity, Alert } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 import { FontAwesome6 } from "@expo/vector-icons";
 
 export default function Home() {
+  const handleAction = (action: string) => {
+    Alert.alert("提示", `点击了：${action}`);
+  };
+
   return (
     <ScrollView style={styles.container}>
       {/* Header */}
@@ -58,30 +62,46 @@ export default function Home() {
       <View style={styles.section}>
         <Text style={styles.sectionTitle}>快捷操作</Text>
         <View style={styles.actionsGrid}>
-          <View style={styles.actionButton}>
+          <TouchableOpacity 
+            style={styles.actionButton} 
+            onPress={() => handleAction("发现交易员")}
+            activeOpacity={0.7}
+          >
             <View style={styles.actionIconContainer}>
               <FontAwesome6 name="compass" size={28} color="#8B5CF6" />
             </View>
             <Text style={styles.actionLabel}>发现交易员</Text>
-          </View>
-          <View style={styles.actionButton}>
+          </TouchableOpacity>
+          <TouchableOpacity 
+            style={styles.actionButton} 
+            onPress={() => handleAction("我的资产")}
+            activeOpacity={0.7}
+          >
             <View style={styles.actionIconContainer}>
               <FontAwesome6 name="wallet" size={28} color="#EC4899" />
             </View>
             <Text style={styles.actionLabel}>我的资产</Text>
-          </View>
-          <View style={styles.actionButton}>
+          </TouchableOpacity>
+          <TouchableOpacity 
+            style={styles.actionButton} 
+            onPress={() => handleAction("跟单记录")}
+            activeOpacity={0.7}
+          >
             <View style={styles.actionIconContainer}>
               <FontAwesome6 name="history" size={28} color="#F59E0B" />
             </View>
             <Text style={styles.actionLabel}>跟单记录</Text>
-          </View>
-          <View style={styles.actionButton}>
+          </TouchableOpacity>
+          <TouchableOpacity 
+            style={styles.actionButton} 
+            onPress={() => handleAction("收益分析")}
+            activeOpacity={0.7}
+          >
             <View style={styles.actionIconContainer}>
               <FontAwesome6 name="chart-pie" size={28} color="#10B981" />
             </View>
             <Text style={styles.actionLabel}>收益分析</Text>
-          </View>
+          </TouchableOpacity>
         </View>
       </View>
     </ScrollView>
