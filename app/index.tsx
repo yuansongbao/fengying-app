@@ -1,14 +1,21 @@
-﻿import { View, Text, StyleSheet, ScrollView, TouchableOpacity, Alert } from "react-native";
+﻿import { View, Text, StyleSheet, ScrollView, TouchableOpacity, Alert, Dimensions } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 import { FontAwesome6 } from "@expo/vector-icons";
 
+const screenWidth = Dimensions.get("window").width;
+
 export default function Home() {
   const handleAction = (action: string) => {
+    console.log("点击了:", action);
     Alert.alert("提示", `点击了：${action}`);
   };
 
   return (
-    <ScrollView style={styles.container}>
+    <ScrollView 
+      style={styles.container} 
+      contentContainerStyle={styles.scrollContent}
+      keyboardShouldPersistTaps="handled"
+    >
       {/* Header */}
       <LinearGradient colors={["#0F172A", "#1E293B"]} style={styles.header}>
         <View style={styles.headerContent}>
@@ -104,6 +111,8 @@ export default function Home() {
           </TouchableOpacity>
         </View>
       </View>
+      
+      <View style={styles.footer} />
     </ScrollView>
   );
 }
@@ -112,6 +121,9 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#F1F5F9",
+  },
+  scrollContent: {
+    paddingBottom: 40,
   },
   header: {
     padding: 40,
@@ -219,7 +231,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#FFFFFF",
     borderRadius: 20,
     padding: 24,
-    width: "48%",
+    width: (screenWidth - 60) / 2,
     alignItems: "center",
     marginBottom: 16,
     shadowColor: "#000",
@@ -227,6 +239,7 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.05,
     shadowRadius: 4,
     elevation: 3,
+    zIndex: 10,
   },
   actionIconContainer: {
     width: 56,
@@ -241,5 +254,8 @@ const styles = StyleSheet.create({
     fontSize: 14,
     fontWeight: "600",
     color: "#1E293B",
+  },
+  footer: {
+    height: 40,
   },
 });
