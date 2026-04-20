@@ -2,8 +2,13 @@
 
 const config = getDefaultConfig(__dirname);
 
-config.resolver.alias = {
-  '@': './',
+// 配置路径别名
+config.resolver = {
+  ...config.resolver,
+  alias: {
+    '@': './',
+  },
+  sourceExts: [...config.resolver.sourceExts, 'ts', 'tsx'],
 };
 
 module.exports = config;
