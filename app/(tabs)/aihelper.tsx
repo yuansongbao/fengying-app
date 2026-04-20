@@ -1,1 +1,1 @@
-﻿export { default } from "@/screens/aihelper";
+﻿export { default } from "../screens/aihelper";

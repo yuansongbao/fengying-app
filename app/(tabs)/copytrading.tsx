@@ -1,1 +1,1 @@
-﻿export { default } from "@/screens/copytrading";
+﻿export { default } from "../screens/copytrading";

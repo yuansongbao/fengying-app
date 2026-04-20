@@ -1,1 +1,1 @@
-﻿export { default } from "@/screens/strategies";
+﻿export { default } from "../screens/strategies";
