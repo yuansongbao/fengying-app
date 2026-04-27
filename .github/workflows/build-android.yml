@@ -1,0 +1,69 @@
+﻿name: Build Android APK
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:  # 允许手动触发
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+        cache: 'npm'
+        
+    - name: Install dependencies
+      run: npm ci
+      
+    - name: Setup EAS
+      run: |
+        npm install -g eas-cli
+        eas version
+        
+    - name: Build APK with EAS
+      env:
+        EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
+      run: |
+        eas build --platform android --profile preview --non-interactive
+        
+    - name: Download APK
+      run: |
+        # 获取最新的构建URL
+        BUILD_URL=$(eas build:list --platform=android --limit=1 --non-interactive --json | jq -r '.[0].artifacts.buildUrl')
+        echo "Build URL: $BUILD_URL"
+        
+        # 下载APK
+        curl -L -o app.apk "$BUILD_URL"
+        
+    - name: Upload APK to Artifacts
+      uses: actions/upload-artifact@v4
+      with:
+        name: fengying-app
+        path: app.apk
+        
+    - name: Create Release
+      if: startsWith(github.ref, 'refs/heads/main')
+      uses: softprops/action-gh-release@v1
+      with:
+        files: app.apk
+        tag_name: v${{ github.run_number }}
+        name: Release v${{ github.run_number }}
+        body: |
+          ## 蜂赢跟单APP - 自动构建
+          
+          ### 下载链接
+          点击下方 `Assets` 中的 `app.apk` 下载
+          
+          ### 构建信息
+          - 构建时间: ${{ github.event.head_commit.timestamp }}
+          - 提交: ${{ github.sha }}
+          - 构建号: ${{ github.run_number }}
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
