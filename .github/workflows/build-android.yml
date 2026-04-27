@@ -25,22 +25,13 @@ jobs:
     - name: Setup EAS
       run: |
         npm install -g eas-cli
-        eas version
+        eas login --non-interactive
         
     - name: Build APK with EAS
       env:
         EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
       run: |
-        eas build --platform android --profile preview --non-interactive
-        
-    - name: Download APK
-      run: |
-        # 获取最新的构建URL
-        BUILD_URL=$(eas build:list --platform=android --limit=1 --non-interactive --json | jq -r '.[0].artifacts.buildUrl')
-        echo "Build URL: $BUILD_URL"
-        
-        # 下载APK
-        curl -L -o app.apk "$BUILD_URL"
+        eas build --platform android --profile preview --non-interactive --output app.apk
         
     - name: Upload APK to Artifacts
       uses: actions/upload-artifact@v4
