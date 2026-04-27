@@ -41,9 +41,9 @@ export default function TabLayout() {
         }}
       />
       <Tabs.Screen
-        name="strategies"
+        name="market"
         options={{
-          title: '策略广场',
+          title: '行情',
           tabBarIcon: ({ color, size }) => (
             <FontAwesome6 name="chart-line" size={size} color={color} />
           ),
@@ -52,18 +52,9 @@ export default function TabLayout() {
       <Tabs.Screen
         name="copytrading"
         options={{
-          title: '实盘跟单',
+          title: '跟单',
           tabBarIcon: ({ color, size }) => (
-            <FontAwesome6 name="robot" size={size} color={color} />
-          ),
-        }}
-      />
-      <Tabs.Screen
-        name="aihelper"
-        options={{
-          title: 'AI蜂助',
-          tabBarIcon: ({ color, size }) => (
-            <FontAwesome6 name="sparkles" size={size} color={color} />
+            <FontAwesome6 name="users" size={size} color={color} />
           ),
         }}
       />

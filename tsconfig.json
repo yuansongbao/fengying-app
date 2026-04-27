@@ -1,10 +1,35 @@
-﻿{
-  \"extends\": \"expo/tsconfig.base\",
-  \"compilerOptions\": {
-    \"strict\": true,
-    \"baseUrl\": \".\",
-    \"paths\": {
-      \"@/*\": [\"./*\"]
+{
+  "extends": "expo/tsconfig.base",
+  "compilerOptions": {
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "resolveJsonModule": true,
+    "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true,
+    "jsx": "react-native",
+    "lib": [
+      "ES2020"
+    ],
+    "module": "ESNext",
+    "target": "ES2020",
+    "baseUrl": ".",
+    "paths": {
+      "@/*": [
+        "./screens/*",
+        "./components/*",
+        "./hooks/*",
+        "./contexts/*",
+        "./utils/*",
+        "./app/*"
+      ]
     }
-  }
+  },
+  "include": [
+    "**/*.ts",
+    "**/*.tsx"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
 }
